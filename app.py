@@ -76,15 +76,5 @@ def results(topic):  # ✅ Use topic from URL directly
     return render_template("results.html", topic=topic, news=data["news"], risks=risks)
 
 
-def run_flask():
-    app.run(debug=True, use_reloader=False)
-
-def run_gui():
-    webview.create_window("Environmental Risk Analysis", "http://127.0.0.1:5000/")
-    webview.start()
-
 if __name__ == "__main__":
-    flask_thread = threading.Thread(target=run_flask)
-    flask_thread.start()
-    run_gui()
-    flask_thread.join()
+    app.run(host="0.0.0.0", port=5000, debug=True)
