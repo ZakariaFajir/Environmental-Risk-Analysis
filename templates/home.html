@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Environmental Risk Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">🌍 Environmental Risk Analysis</h1>
+
+        <form action="/" method="post" class="search-form">
+            <input type="text" name="topic" class="search-input" placeholder="Enter a topic (e.g., Climate Change)" required>
+            <button type="submit" class="search-button">Analyze</button>
+        </form>
+
+        <!-- Description Section -->
+        <div class="description">
+            <p>
+                This tool helps you analyze <strong>environmental risks</strong> by gathering news articles, extracting key risk factors, 
+                and generating a <strong>visual risk analysis</strong>. Simply enter a topic above and click <strong>"Analyze"</strong> to get started.
+            </p>
+
+            <h3 class="section-title">🔍 How It Works:</h3>
+            <ul class="info-list">
+                <li>Enter a <strong>topic</strong> related to the environment (e.g., <strong>Climate Change</strong>, <strong>Air Pollution</strong>).</li>
+                <li>Click the <strong>"Analyze"</strong> button.</li>
+                <li>Our system will gather news articles and identify key <strong>environmental risks</strong>.</li>
+                <li>You’ll receive a <strong>summary of risks</strong>, key factors, and a <strong>severity analysis</strong>.</li>
+                <li>A <strong>visual risk chart</strong> will help you understand the severity of different risks.</li>
+            </ul>
+
+            <h3 class="section-title">📝 Example Topics:</h3>
+            <ul class="example-list">
+                <li>🌎 <strong>Climate Change</strong> – Effects of global warming and mitigation efforts.</li>
+                <li>🏭 <strong>Air Pollution</strong> – Industrial emissions and urban air quality.</li>
+                <li>💧 <strong>Water Scarcity</strong> – Impact of droughts and water shortages.</li>
+                <li>🌳 <strong>Deforestation</strong> – Environmental impact of forest destruction.</li>
+            </ul>
+
+            <!-- New Section: Severity Level Explanation -->
+            <h3 class="section-title">⚠️ Understanding Severity Levels</h3>
+            <p>
+                The **severity score (1-10)** indicates the impact of an environmental risk. Here's how the levels are determined:
+            </p>
+
+            <table class="severity-table">
+                <tr>
+                    <th>Severity Level</th>
+                    <th>Impact Description</th>
+                    <th>Example</th>
+                </tr>
+                <tr class="low-severity">
+                    <td>1-3 (Low)</td>
+                    <td>Localized impact, minimal risk</td>
+                    <td>Small oil spill in a lake</td>
+                </tr>
+                <tr class="moderate-severity">
+                    <td>4-6 (Moderate)</td>
+                    <td>Regional impact, some economic/ecological effects</td>
+                    <td>Industrial air pollution affecting a city</td>
+                </tr>
+                <tr class="high-severity">
+                    <td>7-8 (High)</td>
+                    <td>Nationwide impact, significant damage</td>
+                    <td>Widespread deforestation causing habitat loss</td>
+                </tr>
+                <tr class="critical-severity">
+                    <td>9-10 (Critical)</td>
+                    <td>Global catastrophe, irreversible effects</td>
+                    <td>Climate change leading to rising sea levels</td>
+                </tr>
+            </table>
+
+            <p><strong>📌 Note:</strong> The severity score is automatically calculated based on the **scale, frequency, and long-term effects** of the risk.</p>
+        </div>
+    </div>
+</body>
+</html>

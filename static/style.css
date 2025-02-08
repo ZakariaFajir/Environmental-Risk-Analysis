@@ -1,0 +1,228 @@
+/* General Page Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7f6;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Main Container */
+.container {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Headings */
+h1, h2 {
+    text-align: center;
+    color: #004d40;
+    font-weight: 600;
+}
+
+h3 {
+    color: #00796b;
+    font-size: 20px;
+}
+
+h4, h5 {
+    color: #00695c;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+/* Form Styling */
+.search-form {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.search-input {
+    width: 60%;
+    padding: 10px;
+    border: 2px solid #0288d1;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.search-button {
+    padding: 10px 15px;
+    margin-left: 10px;
+    background: #0288d1;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.search-button:hover {
+    background: #0277bd;
+}
+
+/* Description Section */
+.description {
+    margin-top: 30px;
+    text-align: left;
+    padding: 15px;
+    border-top: 2px solid #ddd;
+}
+
+/* Lists */
+.info-list, .example-list {
+    list-style: none;
+    padding-left: 20px;
+}
+
+.info-list li, .example-list li {
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+/* News Article Styling */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+.ul-b {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    border-bottom: #043042;
+}
+
+li {
+    background: #ffffff;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+/* Images */
+img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    display: block;
+    margin: 10px auto;
+    border-radius: 5px;
+}
+
+/* Risk Analysis Section */
+strong {
+    color: #043042;
+}
+
+p {
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+/* Buttons */
+a.button {
+    display: inline-block;
+    padding: 10px 15px;
+    background: #0288d1;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+a.button:hover {
+    background: #0277bd;
+}
+
+/* Risk Chart */
+img.chart {
+    width: 100%;
+    max-width: 700px;
+    display: block;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 15px;
+    }
+
+    h1, h2 {
+        font-size: 22px;
+    }
+
+    h3 {
+        font-size: 18px;
+    }
+
+    img {
+        max-width: 100%;
+    }
+}
+
+/* Loading Spinner */
+.loader {
+    border: 6px solid #f3f3f3;
+    border-top: 6px solid #3498db;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Severity Table Styling */
+.severity-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.severity-table th, .severity-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.severity-table th {
+    background-color: #004d40;
+    color: white;
+}
+
+/* Color-coded Severity Levels */
+.low-severity {
+    background-color: #c8e6c9;
+}
+
+.moderate-severity {
+    background-color: #ffeb3b;
+}
+
+.high-severity {
+    background-color: #ff9800;
+    color: white;
+}
+
+.critical-severity {
+    background-color: #d32f2f;
+    color: white;
+}
+

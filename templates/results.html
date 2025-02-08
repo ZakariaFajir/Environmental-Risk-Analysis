@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risk Analysis Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Risk Analysis for "{{ topic }}"</h1>
+        <h2>News Articles and Risk Summaries</h2>
+
+        {% if news and risks %}
+        <ul class="ul-b">
+            {% for i in range(news|length) %}
+            <li>
+                <h3>{{ news[i].title }}</h3>
+                <p><strong>Summary:</strong> {{ news[i].summary }}</p>
+                <p><a href="{{ news[i].link }}" target="_blank">🔗 Read Full Article</a></p>
+
+                <h4>🌍 Risk Analysis</h4>
+
+                {% if risks[i] %}
+                <p><strong>📌 Project Overview:</strong> {{ risks[i].project_overview }}</p>
+
+                <h5>🔹 Key Environmental Risk Factors:</h5>
+                <ul>
+                    {% for factor in risks[i].key_factors %}
+                    <li>⚠️ {{ factor }}</li>
+                    {% endfor %}
+                </ul>
+
+                <h5>📊 Key Insights:</h5>
+                <ul>
+                    {% for point in risks[i].key_points %}
+                    <li>📌 {{ point }}</li>
+                    {% endfor %}
+                </ul>
+
+                <p><strong>⚠️ Severity Level:</strong> {{ risks[i].severity }} / 10</p>
+                {% else %}
+                <p><strong>⚠️ No risk analysis available for this article.</strong></p>
+                {% endif %}
+            </li>
+            {% endfor %}
+
+        </ul>
+
+        <!-- Display Risk Analysis Chart -->
+        <h2>📊 Risk Analysis Chart</h2>
+        <img src="{{ url_for('static', filename='risk_chart.png') }}" alt="Risk Analysis Chart"
+            style="width: 100%; max-width: 700px; border-radius: 5px;">
+
+        {% else %}
+        <p><strong>No news articles found for "{{ topic }}". Try a different search.</strong></p>
+        {% endif %}
+
+        <a href="/">🔙 Go Back</a>
+    </div>
+</body>
+
+</html>
