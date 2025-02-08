@@ -110,21 +110,33 @@ def extract_text_from_url(url):
 
 def get_news_urls(topic):
     """Finds Google News search results for the given topic."""
-    search_url = f"https://www.google.com/search?q={topic}+environmental+risk&tbm=nws"
+    search_url = f"https://www.google.com/search?q={topic.replace(' ', '+')}+environmental+risk&tbm=nws"
     headers = {"User-Agent": "Mozilla/5.0"}
 
-    response = requests.get(search_url, headers=headers)
-    soup = BeautifulSoup(response.text, 'html.parser')
+    try:
+        response = requests.get(search_url, headers=headers, timeout=10)
+        if response.status_code != 200:
+            print(f"Failed to fetch search results: HTTP {response.status_code}")
+            return []
 
-    article_links = []
-    for result in soup.select("a"):
-        link = result.get("href")
-        if link and "url?q=" in link:
-            clean_link = link.split("url?q=")[1].split("&")[0]
-            article_links.append(clean_link)
+        soup = BeautifulSoup(response.text, 'html.parser')
 
-    return article_links[:5]  # Limit to top 5 results
-    
+        article_links = []
+        for result in soup.select("a"):
+            link = result.get("href")
+
+            if link and "/url?q=" in link:  # Google redirect format
+                clean_link = link.split("/url?q=")[1].split("&")[0]
+                
+                # Ensure the extracted link is a valid HTTP/HTTPS URL
+                if clean_link.startswith("http"):
+                    article_links.append(clean_link)
+
+        return article_links[:5]  # Limit to top 5 results
+
+    except requests.RequestException as e:
+        print(f"Error fetching Google search results: {e}")
+        return []
 
 if __name__ == "__main__":
     topic = "climate change"
